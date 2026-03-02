@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     public float rotationSpeed = 3;
     public float thrust = 2;
+    static public float currentThrust;
+    public float maxThrust = 10;
 
     void Start()
     {
@@ -21,11 +23,14 @@ public class Player : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         #endregion
+
+        currentThrust = thrust;
     }
         
     private void FixedUpdate()
     {
         RotatePlayer();
+        SetThrust(5);
         MoveForward();
     }
 
@@ -41,8 +46,22 @@ public class Player : MonoBehaviour
     {
         if (Thrust.ReadValue<float>() == 1)
         {
-            rb.linearVelocity += new Vector2(transform.up.x, transform.up.y) * thrust * Time.fixedDeltaTime;
-            Debug.Log("buh");
+            rb.linearVelocity += new Vector2(transform.up.x, transform.up.y) * currentThrust * Time.fixedDeltaTime;
+            Debug.Log(currentThrust);
+        }
+    }
+
+    public void SetThrust(float distance)
+    {
+        currentThrust = thrust / distance;
+        if (currentThrust > maxThrust)
+        {
+            currentThrust = 8;
+        }
+
+        if (currentThrust < thrust)
+        {
+            currentThrust = thrust;
         }
     }
 
