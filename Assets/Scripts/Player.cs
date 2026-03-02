@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         RotatePlayer();
-        SetThrust(5);
         MoveForward();
     }
 
