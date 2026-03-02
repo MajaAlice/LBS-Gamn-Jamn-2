@@ -40,4 +40,11 @@ public class CircleCollider : MonoBehaviour
             Player.transform.position = localPlayerPos + gameObject.transform.position;
         }
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(Vector3.zero, outerCircle);
+        Gizmos.color = Color.purple;
+        Gizmos.DrawWireSphere(Vector3.zero, innerCircle);
+    }
 }
