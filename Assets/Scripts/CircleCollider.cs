@@ -6,9 +6,9 @@ public class CircleCollider : MonoBehaviour
     GameObject Player;
     CircleCollider2D PlayerCollider;
     Rigidbody2D PlayerBody;
-    float outerCircle;
-    float innerCircle;
-    float bouncy;
+    public float outerCircle;
+    public float innerCircle;
+    public float bouncy;
 
     void Start()
     {
