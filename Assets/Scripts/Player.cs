@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     public void SetThrust(float distance)
     {
-        currentThrust = thrust / distance;
+        currentThrust = thrust / (distance * distance);
         if (currentThrust > maxThrust)
         {
             currentThrust = 8;

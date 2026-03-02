@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debc03a376369e240bf28518972a5bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CircleCollider
-  outerCircle: 5
+  outerCircle: 20
   innerCircle: 1
   bouncy: 0.8
 --- !u!4 &741826641
@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3723028522494873763, guid: 8d4c83caba2583240b0593ac99fc7cd5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5694531611759689757, guid: 8d4c83caba2583240b0593ac99fc7cd5, type: 3}
       propertyPath: m_Name
@@ -319,6 +319,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 638934829711648872, guid: 063089d4689420744b339a927c1e3e6b, type: 3}
+      propertyPath: maxThrust
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322855278338178868, guid: 063089d4689420744b339a927c1e3e6b, type: 3}
       propertyPath: m_Name
       value: Player
