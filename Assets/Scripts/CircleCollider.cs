@@ -27,18 +27,18 @@ public class CircleCollider : MonoBehaviour
             if (localPlayerPos.magnitude > (outerCircle - PlayerCollider.radius))
             {
                 localPlayerPos.Normalize();
-                localPlayerPos = localPlayerPos * (outerCircle - PlayerCollider.radius);
+                localPlayerPos *= outerCircle - PlayerCollider.radius;
                 Vector2 localDot = localPlayerPos * -1;
                 localDot.Normalize();
-                PlayerBody.linearVelocity *= localDot * bouncy;
+                PlayerBody.linearVelocity += localDot * bouncy;
             }
             else if (localPlayerPos.magnitude < (innerCircle + PlayerCollider.radius))
             {
                 localPlayerPos.Normalize();
-                localPlayerPos = localPlayerPos * (innerCircle + PlayerCollider.radius);
+                localPlayerPos *= innerCircle + PlayerCollider.radius;
                 Vector2 localDot = localPlayerPos;
                 localDot.Normalize();
-                PlayerBody.linearVelocity *= localDot * bouncy;
+                PlayerBody.linearVelocity += localDot * bouncy;
             }
 
             Player.transform.position = localPlayerPos + gameObject.transform.position;
