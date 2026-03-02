@@ -22,18 +22,20 @@ public class CircleCollider : MonoBehaviour
         // Converts To Local Space AKA The 0,0 Is Now The Center Of Scripts Pearent -Lud
         Vector3 localPlayerPos = Player.transform.position - gameObject.transform.position;
 
-        if (localPlayerPos.magnitude < outerCircle * 2)
+        if (localPlayerPos.magnitude < outerCircle)
         {
-            if (localPlayerPos.magnitude > outerCircle - PlayerCollider.radius)
+            if (localPlayerPos.magnitude > (outerCircle - PlayerCollider.radius))
             {
                 localPlayerPos = localPlayerPos.normalized * (outerCircle - PlayerCollider.radius);
-                Vector2 localDot = localPlayerPos.normalized * -1;
+                Vector2 localDot = localPlayerPos * -1;
+                localDot.Normalize();
                 PlayerBody.linearVelocity *= localDot * bouncy;
             }
-            else if (localPlayerPos.magnitude < innerCircle + PlayerCollider.radius)
+            else if (localPlayerPos.magnitude < (innerCircle + PlayerCollider.radius))
             {
                 localPlayerPos = localPlayerPos.normalized * (innerCircle + PlayerCollider.radius);
-                Vector2 localDot = localPlayerPos.normalized;
+                Vector2 localDot = localPlayerPos;
+                localDot.Normalize();
                 PlayerBody.linearVelocity *= localDot * bouncy;
             }
 
