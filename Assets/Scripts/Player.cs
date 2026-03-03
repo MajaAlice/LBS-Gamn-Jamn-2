@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float thrust = 2;
     static public float currentThrust;
     public float maxThrust = 10;
+    public float distanceMult = 0.5f;  
 
     void Start()
     {
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
 
     public void SetThrust(float distance)
     {
+        distance = distance * distanceMult;
         currentThrust = thrust / (distance * distance);
         if (currentThrust > maxThrust)
         {

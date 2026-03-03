@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 638934829711648872}
   - component: {fileID: 1234045430660079816}
   - component: {fileID: 870379119418137072}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rotationSpeed: 200
   thrust: 5
+  maxThrust: 10
+  distanceMult: 0.5
 --- !u!50 &1234045430660079816
 Rigidbody2D:
   serializedVersion: 5
