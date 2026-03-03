@@ -48,7 +48,7 @@ public class CircleCollider : MonoBehaviour
                 {
                     localPlayerPos.Normalize();
                     localPlayerPos *= outerCircle - PlayerCollider.radius;
-                    PlayerBody.linearVelocity += localDot;
+                    PlayerBody.linearVelocity += localDot * -1;
                     PlayerBody.linearVelocity *= bouncy;
                 }
                 // Checks If The Player Is In The InnerCircle -Lud

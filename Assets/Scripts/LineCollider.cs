@@ -2,30 +2,48 @@ using UnityEngine;
 
 public class LineCollider : MonoBehaviour
 {
-    GameObject PlayerObj;
-    Player Player;
+    // Main Script Refrences -Lud
+    GameObject PlayerObject;
+    CircleCollider2D PlayerCollider;
+    Rigidbody2D PlayerBody;
+    Player PlayerScript;
 
     public float lenght = 5;
-    public Vector2 point1;
-    public Vector2 point2;
+    public Vector2 pointA;
+    public Vector2 pointB;
+    public Vector2 rightNormal;
+    public Vector2 leftNormal;
+
 
     void Start()
     {
-        PlayerObj = GameObject.FindGameObjectWithTag("Player");
-        Player = PlayerObj.GetComponent<Player>();
+        UpdateVector();
 
-        point1 = new Vector2(transform.up.x, transform.up.y);
-        point2 = new Vector2(transform.up.x * lenght, transform.up.y * lenght);
+        PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        /*
+        PlayerCollider = PlayerObject.GetComponent<CircleCollider2D>();
+        PlayerBody = PlayerObject.GetComponent<Rigidbody2D>();
+        PlayerScript = PlayerObject.GetComponent<Player>();
+        */
+    }
 
+    // Makes Sure The Normals Are Up To Date -Lud
+    public void UpdateVector()
+    {
+        Vector2 localPos = pointB - pointA;
+        Vector2 Normal = localPos;
+        Normal.Normalize();
+        rightNormal = new Vector2(Normal.y, -Normal.x);
+        leftNormal = new Vector2(-Normal.y, Normal.x);
     }
 
     void FixedUpdate()
     {
-
+        
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(new Vector3(point1.x, point1.y), new Vector3(point2.x, point2.y));
+        Gizmos.DrawLine(new Vector3(pointA.x, pointA.y), new Vector3(pointB.x, pointB.y));
     }
 }
