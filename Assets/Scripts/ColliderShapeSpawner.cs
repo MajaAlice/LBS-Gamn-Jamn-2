@@ -1,8 +1,9 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class ColliderShapeSpawner : MonoBehaviour
 {
-    public GameObject LineCollider;
+    public GameObject LineColliderObj;
 
     #region Circle variables
     public Vector3[] outerPoints;
@@ -35,13 +36,33 @@ public class ColliderShapeSpawner : MonoBehaviour
             outerPoints[i] = transform.position + transform.up * outerRadius;
             innerPoints[i] = transform.position + transform.up * innerRadius;
         }
+        for (int i = segments; i > 0; i--)
+        {            
+            int pointA = i;
+            int pointB;
+            if (i == 0)
+            {
+                pointB = 0;
+            }
+            else pointB = i - 1;
+            SpawnLine(outerPoints[pointA], outerPoints[pointB]);
+            SpawnLine(innerPoints[pointA], innerPoints[pointB]);
+        }
     }
 
+
+    public void SpawnLine(Vector3 pointA, Vector3 pointB)
+    {
+        GameObject tempObj = Instantiate(LineColliderObj);
+        LineCollider line = tempObj.GetComponent<LineCollider>();
+        line.pointA = new Vector2(pointA.x, pointA.y);
+        line.pointB = new Vector2(pointB.x, pointB.y);
+    }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLineStrip(outerPoints, false);
-        Gizmos.color = Color.purple;
-        Gizmos.DrawLineStrip(innerPoints, false);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawLineStrip(outerPoints, false);
+        //Gizmos.color = Color.purple;
+        //Gizmos.DrawLineStrip(innerPoints, false);
     }
 }
