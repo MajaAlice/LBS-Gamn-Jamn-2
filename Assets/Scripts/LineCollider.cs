@@ -9,10 +9,10 @@ public class LineCollider : MonoBehaviour
     Rigidbody2D PlayerBody;
     Player PlayerScript;
 
-    public float lineTHICK;
+    static float lineTHICK;
     public float lenght;
-    public float rigidity;
-    public float tangentRigidity;
+    static float rigidity;
+    static float tangentRigidity;
     public Vector2 pointA;
     public Vector2 pointB;
     public Vector2 normal;
