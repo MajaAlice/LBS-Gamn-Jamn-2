@@ -213,11 +213,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
       propertyPath: angle
-      value: 360
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
+      propertyPath: rotation
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
       propertyPath: segments
-      value: 36
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
+      propertyPath: selectedShape
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8230975667705892666, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
       propertyPath: m_Name
@@ -347,11 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4290070679393844810, guid: 063089d4689420744b339a927c1e3e6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.9
+      value: -2.13
       objectReference: {fileID: 0}
     - target: {fileID: 4290070679393844810, guid: 063089d4689420744b339a927c1e3e6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.22
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 4290070679393844810, guid: 063089d4689420744b339a927c1e3e6b, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,40 +1,77 @@
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ColliderShapeSpawner : MonoBehaviour
 {
     public GameObject LineColliderObj;
 
+    public float rotation = 0f;
     #region Circle variables
-    public Vector3[] outerPoints;
-    public Vector3[] innerPoints;
-
+    public Vector3[] ringOuterPoints;
+    public Vector3[] ringInnerPoints;
     public int segments = 5;
     public float angle = 90f;
-    public float direction = 0f;
-    public float innerRadius = 1f;
-    public float outerRadius = 5f;
+    public float ringInnerRadius = 1f;
+    public float ringOuterRadius = 5f;
     #endregion
 
+    #region line / tube variables
+    public Vector3[] linePoints = new Vector3[2];
+    public float lenght = 2f;
+    public float distance = 2f;
+    #endregion
+
+    public shapeTypes selectedShape = shapeTypes.none;
+    public enum shapeTypes
+    {
+        none,
+        line,
+        tube,
+        curve,
+        parallelCurve
+
+    }
     private void Start()
     {
-        outerPoints = new Vector3[segments + 1];
-        innerPoints = new Vector3[segments + 1];
-        Circle();
+        ringOuterPoints = new Vector3[segments + 1];
+        ringInnerPoints = new Vector3[segments + 1];
+
+        switch (selectedShape)
+        {
+            case shapeTypes.line:
+                Line();
+                break;
+
+            case shapeTypes.tube:
+                Tube();
+                break;
+
+            case shapeTypes.curve:
+                Curve();
+                break;
+            case shapeTypes.parallelCurve:
+                Curve();
+                break;
+        }
     }
 
-    public void Circle()
+    public void Curve()
     {
-        transform.rotation = Quaternion.AngleAxis(direction, Vector3.forward);
-        outerPoints[0] = transform.position + transform.up * outerRadius;
-        innerPoints[0] = transform.position + transform.up * innerRadius;
+        transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+        ringOuterPoints[0] = transform.position + transform.up * ringOuterRadius;
+        ringInnerPoints[0] = transform.position + transform.up * ringInnerRadius;
         float stepSize = angle / segments;
         
         for(int i = 1; i < segments + 1; i++)
         {
             transform.rotation *= transform.rotation = Quaternion.AngleAxis(stepSize, Vector3.forward);
-            outerPoints[i] = transform.position + transform.up * outerRadius;
-            innerPoints[i] = transform.position + transform.up * innerRadius;
+            ringOuterPoints[i] = transform.position + transform.up * ringOuterRadius;
+            if (selectedShape == shapeTypes.parallelCurve)
+            {
+                ringInnerPoints[i] = transform.position + transform.up * ringInnerRadius;
+            }
         }
         for (int i = segments; i > 0; i--)
         {            
@@ -45,11 +82,29 @@ public class ColliderShapeSpawner : MonoBehaviour
                 pointB = 0;
             }
             else pointB = i - 1;
-            SpawnLine(outerPoints[pointA], outerPoints[pointB]);
-            SpawnLine(innerPoints[pointA], innerPoints[pointB]);
+            SpawnLine(ringOuterPoints[pointA], ringOuterPoints[pointB]);
+            if(selectedShape == shapeTypes.parallelCurve)
+            {
+                SpawnLine(ringInnerPoints[pointA], ringInnerPoints[pointB]);
+            }
         }
     }
 
+    public void Line()
+    {
+        linePoints[0] = transform.position;
+        transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+        linePoints[1] = transform.position + transform.up * distance;
+        SpawnLine(linePoints[0], linePoints[1]);
+    }
+
+    public void Tube()
+    {
+        Line();
+        transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
+        transform.position += transform.up * distance;
+        Line();
+    }
 
     public void SpawnLine(Vector3 pointA, Vector3 pointB)
     {

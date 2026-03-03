@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineCollider
   lenght: 0
-  rigidity: 0
-  tangentRigidity: 0
+  rigidity: 1
+  tangentRigidity: 1
   pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   normal: {x: 0, y: 0}

@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         RotatePlayer();
         MoveForward();
         SlowDown();
+        Debug.Log(rb.linearVelocity);
     }
 
 

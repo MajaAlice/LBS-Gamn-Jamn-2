@@ -55,13 +55,13 @@ public class LineCollider : MonoBehaviour
         Vector2 PlayerPos = PlayerObject.transform.position;
         Vector2 localPlayerPos = gameObject.transform.position - PlayerObject.transform.position;
         float LengthDistance = Vector2.Dot(localPlayerPos, normal);
-        Debug.Log(LengthDistance);
+        //Debug.Log(LengthDistance);
         if ((LengthDistance < lenght) && (LengthDistance > 0))
         {
             float rightDistance = Vector2.Dot(localPlayerPos, rightNormal);
             float leftDistance = Vector2.Dot(localPlayerPos, leftNormal);
-            Debug.Log(rightDistance);
-            Debug.Log(leftDistance);
+            //Debug.Log(rightDistance);
+            //Debug.Log(leftDistance);
             if ((PlayerCollider.radius > rightDistance) && (rightDistance > 0))
             {
                 float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, rightNormal);
