@@ -35,59 +35,56 @@ public class LineCollider : MonoBehaviour
         // Updates The Values -Lud
         Vector2 localPos = pointB - pointA;
         lenght = localPos.magnitude;
-        Vector2 Normal = localPos;
-        Normal.Normalize();
-        rightNormal = new Vector2(Normal.y, -Normal.x);
-        leftNormal = new Vector2(-Normal.y, Normal.x);
+        normal = localPos;
+        normal.Normalize();
+        rightNormal = new Vector2(normal.y, -normal.x);
+        leftNormal = new Vector2(-normal.y, normal.x);
         // Makes Sure The Sprite Is In The Correct Direction -Lud
-        gameObject.transform.rotation = Quaternion.LookRotation(Normal);
+        gameObject.transform.rotation = Quaternion.LookRotation(normal);
+        gameObject.transform.position = new Vector3((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2, 0);
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        Vector2 PlayerPos = PlayerObject.transform.position;
-        if (lenght < (PlayerPos - pointA).magnitude)
-        {
-            CheckLineCollison();
-        }
-        else if (lenght < (PlayerPos - pointB).magnitude)
-        {
-            CheckLineCollison();
-        }
+        CheckLineCollison();
     }
 
     // Makes Sure The Player Isnt Intersecting The Line -Lud
     public void CheckLineCollison()
     {
         Vector2 PlayerPos = PlayerObject.transform.position;
-        float rightDistance = Vector2.Dot(PlayerPos, rightNormal);
-        float leftDistance = Vector2.Dot(PlayerPos, leftNormal);
-        if (PlayerCollider.radius > rightDistance)
+        Vector2 localPlayerPos = gameObject.transform.position - PlayerObject.transform.position;
+        float LengthDistance = Vector2.Dot(localPlayerPos, normal);
+        Debug.Log(LengthDistance);
+        if ((LengthDistance < lenght) && (LengthDistance > 0))
         {
-            // Moves The Player Off The Line -Lud
-            PlayerObject.transform.position = PlayerPos + (rightNormal * (PlayerCollider.radius - rightDistance));
-            float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, rightNormal);
-            float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(rightNormal.y, -rightNormal.x));
-
-            if(speedAlongNormal <= 0)
+            float rightDistance = Vector2.Dot(localPlayerPos, rightNormal);
+            float leftDistance = Vector2.Dot(localPlayerPos, leftNormal);
+            Debug.Log(rightDistance);
+            Debug.Log(leftDistance);
+            if ((PlayerCollider.radius > rightDistance) && (rightDistance > 0))
             {
-                // Credit Zanzlanz -Lud
-                PlayerBody.linearVelocityX = -(speedAlongNormal * rightNormal.x) * rigidity + (speedAlongTangent * rightNormal.y) * tangentRigidity;
-                PlayerBody.linearVelocityX = -(speedAlongNormal * rightNormal.x) * rigidity + (speedAlongTangent *-rightNormal.y) * tangentRigidity;
+                float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, rightNormal);
+                float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(rightNormal.y, -rightNormal.x));
+
+                if (speedAlongNormal <= 0)
+                {
+                    // Credit Zanzlanz -Lud
+                    PlayerBody.linearVelocityX = -(speedAlongNormal * rightNormal.x) * rigidity + (speedAlongTangent * rightNormal.y) * tangentRigidity;
+                    PlayerBody.linearVelocityY = -(speedAlongNormal * rightNormal.y) * rigidity + (speedAlongTangent * -rightNormal.x) * tangentRigidity;
+                }
             }
-        }
-        else if (PlayerCollider.radius > leftDistance)
-        {
-            // Moves The Player Off The Line -Lud
-            PlayerObject.transform.position = PlayerPos + (leftNormal * (PlayerCollider.radius - leftDistance));
-            float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, leftNormal);
-            float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(leftNormal.y, -leftNormal.x));
-
-            if (speedAlongNormal <= 0)
+            else if ((PlayerCollider.radius > leftDistance) && (leftDistance > 0))
             {
-                // Credit Zanzlanz -Lud
-                PlayerBody.linearVelocityX = -(speedAlongNormal * leftNormal.x) * rigidity + (speedAlongTangent * leftNormal.y) * tangentRigidity;
-                PlayerBody.linearVelocityX = -(speedAlongNormal * leftNormal.x) * rigidity + (speedAlongTangent * -leftNormal.y) * tangentRigidity;
+                float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, leftNormal);
+                float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(leftNormal.y, -leftNormal.x));
+
+                if (speedAlongNormal <= 0)
+                {
+                    // Credit Zanzlanz -Lud
+                    PlayerBody.linearVelocityX = -(speedAlongNormal * leftNormal.x) * rigidity + (speedAlongTangent * leftNormal.y) * tangentRigidity;
+                    PlayerBody.linearVelocityY = -(speedAlongNormal * leftNormal.y) * rigidity + (speedAlongTangent * -leftNormal.x) * tangentRigidity;
+                }
             }
         }
     }
@@ -95,5 +92,7 @@ public class LineCollider : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(new Vector3(pointA.x, pointA.y), new Vector3(pointB.x, pointB.y));
+        Gizmos.DrawLine(Vector3.zero, new Vector3(rightNormal.x, rightNormal.y));
+        Gizmos.DrawLine(Vector3.zero, new Vector3(leftNormal.x, leftNormal.y));
     }
 }

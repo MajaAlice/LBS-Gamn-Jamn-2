@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
         if (Thrust.ReadValue<float>() == 1)
         {
             rb.linearVelocity += new Vector2(transform.up.x, transform.up.y) * currentThrust * Time.fixedDeltaTime;
-            Debug.Log(currentThrust);
         }
     }
 
