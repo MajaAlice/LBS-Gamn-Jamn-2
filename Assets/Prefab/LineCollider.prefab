@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664ab8e6eb8836d4b82d4c5fbccc5f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineCollider
+  lineTHICK: 1
   lenght: 0
-  rigidity: 1
-  tangentRigidity: 1
+  rigidity: 0.975
+  tangentRigidity: 0.75
   pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   normal: {x: 0, y: 0}

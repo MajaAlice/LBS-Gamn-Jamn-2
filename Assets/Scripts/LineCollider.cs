@@ -9,15 +9,15 @@ public class LineCollider : MonoBehaviour
     Rigidbody2D PlayerBody;
     Player PlayerScript;
 
+    static float lineTHICK;
     public float lenght;
-    public float rigidity;
-    public float tangentRigidity;
+    static float rigidity;
+    static float tangentRigidity;
     public Vector2 pointA;
     public Vector2 pointB;
     public Vector2 normal;
     public Vector2 rightNormal;
     public Vector2 leftNormal;
-
 
     void Start()
     {
@@ -55,17 +55,15 @@ public class LineCollider : MonoBehaviour
         Vector2 PlayerPos = PlayerObject.transform.position;
         Vector2 localPlayerPos = gameObject.transform.position - PlayerObject.transform.position;
         float LengthDistance = Vector2.Dot(localPlayerPos, normal);
-        //Debug.Log(LengthDistance);
         if ((LengthDistance < lenght) && (LengthDistance > 0))
         {
-            float rightDistance = Vector2.Dot(localPlayerPos, rightNormal);
-            float leftDistance = Vector2.Dot(localPlayerPos, leftNormal);
-            //Debug.Log(rightDistance);
-            //Debug.Log(leftDistance);
-            if ((PlayerCollider.radius > rightDistance) && (rightDistance > 0))
+            float distanceAlongNormal = Vector2.Dot(localPlayerPos, rightNormal);
+            if(Mathf.Abs(distanceAlongNormal) < PlayerCollider.radius + lineTHICK)
             {
                 float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, rightNormal);
+                float speedAlongNormalLeft = Vector2.Dot(PlayerBody.linearVelocity, leftNormal);
                 float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(rightNormal.y, -rightNormal.x));
+                float speedAlongTangentLeft = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(leftNormal.y, -leftNormal.x));
 
                 if (speedAlongNormal <= 0)
                 {
@@ -73,17 +71,11 @@ public class LineCollider : MonoBehaviour
                     PlayerBody.linearVelocityX = -(speedAlongNormal * rightNormal.x) * rigidity + (speedAlongTangent * rightNormal.y) * tangentRigidity;
                     PlayerBody.linearVelocityY = -(speedAlongNormal * rightNormal.y) * rigidity + (speedAlongTangent * -rightNormal.x) * tangentRigidity;
                 }
-            }
-            else if ((PlayerCollider.radius > leftDistance) && (leftDistance > 0))
-            {
-                float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, leftNormal);
-                float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(leftNormal.y, -leftNormal.x));
-
-                if (speedAlongNormal <= 0)
+                else if (speedAlongNormalLeft <= 0)
                 {
                     // Credit Zanzlanz -Lud
-                    PlayerBody.linearVelocityX = -(speedAlongNormal * leftNormal.x) * rigidity + (speedAlongTangent * leftNormal.y) * tangentRigidity;
-                    PlayerBody.linearVelocityY = -(speedAlongNormal * leftNormal.y) * rigidity + (speedAlongTangent * -leftNormal.x) * tangentRigidity;
+                    PlayerBody.linearVelocityX = -(speedAlongNormalLeft * leftNormal.x) * rigidity + (speedAlongTangentLeft * leftNormal.y) * tangentRigidity;
+                    PlayerBody.linearVelocityY = -(speedAlongNormalLeft * leftNormal.y) * rigidity + (speedAlongTangentLeft * -leftNormal.x) * tangentRigidity;
                 }
             }
         }
@@ -92,7 +84,5 @@ public class LineCollider : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(new Vector3(pointA.x, pointA.y), new Vector3(pointB.x, pointB.y));
-        Gizmos.DrawLine(Vector3.zero, new Vector3(rightNormal.x, rightNormal.y));
-        Gizmos.DrawLine(Vector3.zero, new Vector3(leftNormal.x, leftNormal.y));
     }
 }
