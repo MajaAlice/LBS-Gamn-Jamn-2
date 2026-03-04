@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 3833210480916664620}
   - component: {fileID: 7147534503394425937}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 2447763234035479071}
   - component: {fileID: -6269317260431593210}
   - component: {fileID: 6194783009875637321}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   m_Layer: 7
@@ -50,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664ab8e6eb8836d4b82d4c5fbccc5f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineCollider
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 --- !u!212 &2447763234035479071
 SpriteRenderer:
@@ -183,5 +187,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
