@@ -10,10 +10,10 @@ public class LineCollider : MonoBehaviour
     {
         // Updates The Values -Lud
         Vector2 localPos = pointB - pointA;
-        float lenght = localPos.magnitude;
         Vector2 normal = localPos;
-        normal.Normalize();
         // Makes Sure The Sprite Is In The Correct Direction -Lud
+        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude, gameObject.transform.localScale.z);
+        normal.Normalize();
         gameObject.transform.rotation = Quaternion.LookRotation(normal);
         gameObject.transform.position = new Vector3((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2, 0);
     }
