@@ -44,11 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78aedd096416894387d33b9aa507234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColliderShapeSpawner
-  LineColliderObj: {fileID: 8179453700980298985, guid: 8c5dd8d3688811f4abeb4cc8658b7400, type: 3}
-  outerPoints: []
-  innerPoints: []
+  LineColliderObj: {fileID: 986407048523846741, guid: 84ae089d624001d4aad0952d9fe048be, type: 3}
+  rotation: 0
+  ringOuterPoints: []
+  ringInnerPoints: []
   segments: 5
   angle: 90
-  direction: 0
-  innerRadius: 1
-  outerRadius: 5
+  ringInnerRadius: 1
+  ringOuterRadius: 5
+  linePoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  lenght: 2
+  distance: 2
+  selectedShape: 0
