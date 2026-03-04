@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class ColliderShapeSpawner : MonoBehaviour
 {
+    //most of this script is by Maja, a little by oliver
+
     public GameObject LineColliderObj;
 
     public float rotation = 0f;
@@ -48,7 +50,7 @@ public class ColliderShapeSpawner : MonoBehaviour
                 Tube();
                 break;
 
-            case shapeTypes.curve:
+            case shapeTypes.curve: // both curve and parallel curve are in the same function, it's a bit spaghetti but it works -- Maja
                 Curve();
                 break;
             case shapeTypes.parallelCurve:

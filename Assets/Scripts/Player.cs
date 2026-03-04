@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
             if (Vel.magnitude > 0.5f)
             {
                 Vel.Normalize();
-                rb.linearVelocity -= Vel * (currentThrust * Time.fixedDeltaTime);
+                rb.linearVelocity -= Vel * (currentThrust * Time.fixedDeltaTime * brakeStrenght);
             }
             else
             {
@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
                 affectedObject.AddForce(transform.up * currentThrust * -1);
             }
         }
+        else { currentThrust = thrust; }
     }
 
 }
