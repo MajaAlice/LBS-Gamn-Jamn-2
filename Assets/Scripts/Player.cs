@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
         MoveForward();
         SlowDown();
         BehindPlayerCheck();
-        Debug.Log(currentThrust);
     }
 
 
@@ -87,7 +86,7 @@ public class Player : MonoBehaviour
         currentThrust = thrust / (distance * distance);
         if (currentThrust > maxThrust)
         {
-            currentThrust = 8;
+            currentThrust = maxThrust;
         }
 
         if (currentThrust < thrust)
@@ -96,6 +95,8 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    //crude af code that checks for objects behind the player and pushes objects, also triggers SetThrust() -- Maja
     public void BehindPlayerCheck()
     {
         RaycastHit2D hitInfoObstacle = Physics2D.Raycast(transform.position, transform.up * -1, 2, Obstacle);
@@ -108,6 +109,11 @@ public class Player : MonoBehaviour
             {
                 affectedObject.AddForce(transform.up * currentThrust * -1);
             }
+        }
+        else { currentThrust = thrust; }
+        if (hitInfoWall) 
+        {
+            SetThrust(hitInfoWall.distance);
         }
         else { currentThrust = thrust; }
     }
