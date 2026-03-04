@@ -3,8 +3,7 @@ using UnityEngine.UIElements;
 
 public class LineCollider : MonoBehaviour
 {
-
-
+    public static float LineExtraThick = 0.15f;
     // Makes Sure The Normals Are Up To Date -Lud
     public void UpdateVector( Vector2 pointA, Vector2 pointB)
     {
@@ -12,9 +11,9 @@ public class LineCollider : MonoBehaviour
         Vector2 localPos = pointB - pointA;
         Vector2 normal = localPos;
         // Makes Sure The Sprite Is In The Correct Direction -Lud
-        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude, gameObject.transform.localScale.z);
+        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude + LineExtraThick, gameObject.transform.localScale.z);
         normal.Normalize();
-        gameObject.transform.rotation = Quaternion.LookRotation(normal) * Quaternion.Euler(0, -90, 0);
+        gameObject.transform.rotation = Quaternion.LookRotation(normal) * Quaternion.Euler(0, -90, 90);
         gameObject.transform.position = new Vector2((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2);
     }
 

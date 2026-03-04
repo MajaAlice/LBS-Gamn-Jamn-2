@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4657714338567697662}
   - component: {fileID: 2671256238977753568}
   - component: {fileID: 2313626964584841806}
-  - component: {fileID: 6581678344304548248}
+  - component: {fileID: 8237085632053986647}
   m_Layer: 7
   m_Name: LineCollider
   m_TagString: Untagged
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &6581678344304548248
+--- !u!114 &8237085632053986647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
