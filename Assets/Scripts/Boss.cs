@@ -4,6 +4,7 @@ public class Boss : MonoBehaviour
 {
     public float speed;
     public float speedUpMult;
+    public bool isChasing = true;
     GameObject Player;
 
     void Start()
@@ -28,11 +29,23 @@ public class Boss : MonoBehaviour
     
     public void MoveTowardsPlayer()
     {
-        float currentSpeed;
-        float distance = (Player.transform.position - transform.position).magnitude;
-        currentSpeed = distance * speedUpMult;
-        if(currentSpeed < speed) { currentSpeed = speed; }
-        transform.position += transform.up * (currentSpeed * Time.fixedDeltaTime);
+        if (isChasing)
+        {
+            float currentSpeed;
+            float distance = (Player.transform.position - transform.position).magnitude;
+            currentSpeed = distance * speedUpMult;
+            if (currentSpeed < speed) { currentSpeed = speed; }
+            transform.position += transform.up * (currentSpeed * Time.fixedDeltaTime);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player")) 
+        {
+            isChasing = false;
+            Player PlayerScript = Player.GetComponent<Player>();
+            StartCoroutine(PlayerScript.Kill());
+        }
     }
 }
 

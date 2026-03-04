@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 3080761284411671679}
   - component: {fileID: 3414815262872731878}
   - component: {fileID: 4611477961188047097}
-  - component: {fileID: -815431382836308096}
-  m_Layer: 0
+  - component: {fileID: 2704668982299657562}
+  - component: {fileID: 4389756127897784656}
+  - component: {fileID: 5064521121887279660}
+  m_Layer: 6
   m_Name: Obstacle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1237233469960739150, guid: 22f1c88d5b9ccfd42b967fa1b861c047, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,8 +122,8 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &-815431382836308096
-PolygonCollider2D:
+--- !u!58 &2704668982299657562
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,26 +157,38 @@ PolygonCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.45, y: 0.41}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.12162304, y: 0.16685584}
-      - {x: -0.19898903, y: 0.03856413}
-      - {x: -0.22116458, y: -0.12853009}
-      - {x: -0.0803473, y: -0.15976435}
-      - {x: 0.00021183491, y: -0.18314263}
-      - {x: 0.18895078, y: -0.1840064}
-      - {x: 0.2179724, y: -0.1098423}
-      - {x: 0.19843078, y: -0.05442977}
-      - {x: 0.22590864, y: 0.07026881}
-      - {x: 0.18215406, y: 0.15284383}
-      - {x: 0.05518329, y: 0.2011145}
-  m_UseDelaunayMesh: 1
+  m_Radius: 0.3
+--- !u!114 &4389756127897784656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6523398488463146237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b7987e604a7c344a65b52422f6cb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
+--- !u!95 &5064521121887279660
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6523398488463146237}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ef7cb519315e264a9a53f44a794f9eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

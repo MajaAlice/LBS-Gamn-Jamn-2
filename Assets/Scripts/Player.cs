@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using UnityEngine.Animations;
+using System.Collections;
 public class Player : MonoBehaviour
 {
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public float maxThrust = 10;
     public float distanceMult = 0.5f;
     public float brakeStrenght = 0.95f; // a multiplier
+    public bool hasControl = true;
 
     LayerMask Obstacle;
     LayerMask Wall;
@@ -43,10 +45,13 @@ public class Player : MonoBehaviour
         
     private void FixedUpdate()
     {
-        RotatePlayer();
-        MoveForward();
-        SlowDown();
-        BehindPlayerCheck();
+        if (hasControl)
+        {
+            RotatePlayer();
+            MoveForward();
+            SlowDown();
+            BehindPlayerCheck();
+        }
     }
 
 
@@ -126,5 +131,13 @@ public class Player : MonoBehaviour
         }
         else { currentThrust = thrust; }
     }
-
+ 
+    public IEnumerator Kill()
+    {
+        Animator.Play("Explosion");
+        hasControl = false;
+        rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
+    }
 }

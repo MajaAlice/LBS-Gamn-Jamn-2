@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour
 
     //maja
     GameObject Player;
+
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
