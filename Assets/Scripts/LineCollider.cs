@@ -3,53 +3,32 @@ using UnityEngine.UIElements;
 
 public class LineCollider : MonoBehaviour
 {
-    // Main Script Refrences -Lud
-    GameObject PlayerObject;
-    CircleCollider2D PlayerCollider;
-    Rigidbody2D PlayerBody;
-    Player PlayerScript;
 
-    static float lineTHICK;
-    public float lenght;
-    static float rigidity;
-    static float tangentRigidity;
-    public Vector2 pointA;
-    public Vector2 pointB;
-    public Vector2 normal;
-    public Vector2 rightNormal;
-    public Vector2 leftNormal;
-
-    void Start()
-    {
-        UpdateVector();
-
-        PlayerObject = GameObject.FindGameObjectWithTag("Player");
-        PlayerCollider = PlayerObject.GetComponent<CircleCollider2D>();
-        PlayerBody = PlayerObject.GetComponent<Rigidbody2D>();
-        PlayerScript = PlayerObject.GetComponent<Player>();
-    }
 
     // Makes Sure The Normals Are Up To Date -Lud
-    public void UpdateVector()
+    public void UpdateVector( Vector2 pointA, Vector2 pointB)
     {
         // Updates The Values -Lud
         Vector2 localPos = pointB - pointA;
-        lenght = localPos.magnitude;
-        normal = localPos;
-        normal.Normalize();
-        rightNormal = new Vector2(normal.y, -normal.x);
-        leftNormal = new Vector2(-normal.y, normal.x);
+        Vector2 normal = localPos;
         // Makes Sure The Sprite Is In The Correct Direction -Lud
+        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude, gameObject.transform.localScale.z);
+        normal.Normalize();
         gameObject.transform.rotation = Quaternion.LookRotation(normal);
-        gameObject.transform.position = new Vector3((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2, 0);
-    }
-
-    void Update()
-    {
-        CheckLineCollison();
+        gameObject.transform.position = new Vector2((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2);
     }
 
     // Makes Sure The Player Isnt Intersecting The Line -Lud
+    /* not used anymore .-.
+    public float lenght;
+    public Vector2 normal;
+    public Vector2 pointA;
+    public Vector2 pointB;
+    public Vector2 rightNormal;
+    public Vector2 leftNormal;
+    static float rigidity;
+    static float tangentRigidity;
+    static float lineTHICK;
     public void CheckLineCollison()
     {
         Vector2 PlayerPos = PlayerObject.transform.position;
@@ -80,9 +59,5 @@ public class LineCollider : MonoBehaviour
             }
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(new Vector3(pointA.x, pointA.y), new Vector3(pointB.x, pointB.y));
-    }
+    */
 }

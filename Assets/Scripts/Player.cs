@@ -66,7 +66,17 @@ public class Player : MonoBehaviour
     {
         if(Brake.ReadValue<float>() == 1)
         {
-            rb.linearVelocity *= brakeStrenght;
+            // Hopefully This Will Give Brake More Controll -Lud
+            Vector2 Vel = rb.linearVelocity;
+            if (Vel.magnitude > 0.5f)
+            {
+                Vel.Normalize();
+                rb.linearVelocity -= Vel * (currentThrust * Time.fixedDeltaTime);
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
     }
 
