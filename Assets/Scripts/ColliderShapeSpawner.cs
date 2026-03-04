@@ -110,9 +110,10 @@ public class ColliderShapeSpawner : MonoBehaviour
     {
         GameObject tempObj = Instantiate(LineColliderObj);
         LineCollider line = tempObj.GetComponent<LineCollider>();
-        line.pointA = new Vector2(pointA.x, pointA.y);
-        line.pointB = new Vector2(pointB.x, pointB.y);
+
+        line.UpdateVector((Vector2)pointA, (Vector2)pointB);
     }
+    
     private void OnDrawGizmos()
     {
         //Gizmos.color = Color.red;
