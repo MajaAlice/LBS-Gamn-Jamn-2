@@ -14,7 +14,7 @@ public class LineCollider : MonoBehaviour
         // Makes Sure The Sprite Is In The Correct Direction -Lud
         gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude, gameObject.transform.localScale.z);
         normal.Normalize();
-        gameObject.transform.rotation = Quaternion.LookRotation(normal);
+        gameObject.transform.rotation = Quaternion.LookRotation(normal) * Quaternion.Euler(0, -90, 0);
         gameObject.transform.position = new Vector2((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2);
     }
 
