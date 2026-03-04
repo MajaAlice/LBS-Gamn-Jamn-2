@@ -3,14 +3,17 @@ guid: c64e056a7c461424e833dc9bc8473a57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3530803355137060059
-    second: alien squid_0
+      213: -4377772170602826032
+    second: Alien Squid_0
   - first:
-      213: -7585788248465217535
-    second: alien squid_1
+      213: 6339390220131120293
+    second: Alien Squid_1
   - first:
-      213: -1058781530134126265
-    second: alien squid_2
+      213: 2294093182264631261
+    second: Alien Squid_2
+  - first:
+      213: 311923918414917868
+    second: Alien Squid_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 680
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -79,9 +82,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,67 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alien squid_0
+      name: Alien Squid_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 1919
-        width: 466
-        height: 634
+        x: 0
+        y: 680
+        width: 680
+        height: 680
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5235c453e01100fc0800000000000000
-      internalID: -3530803355137060059
+      spriteID: 0d6b0afb7670f33c0800000000000000
+      internalID: -4377772170602826032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien squid_1
+      name: Alien Squid_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1279
-        width: 562
-        height: 626
+        x: 680
+        y: 680
+        width: 680
+        height: 680
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 108e5ec77cdd9b690800000000000000
-      internalID: -7585788248465217535
+      spriteID: 5a4308351d90af750800000000000000
+      internalID: 6339390220131120293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien squid_2
+      name: Alien Squid_2
       rect:
         serializedVersion: 2
-        x: 111
+        x: 0
         y: 0
-        width: 418
-        height: 1265
+        width: 680
+        height: 680
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7416c99dec37e41f0800000000000000
-      internalID: -1058781530134126265
+      spriteID: ddf578a389146df10800000000000000
+      internalID: 2294093182264631261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alien Squid_3
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 680
+        height: 680
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce0b112b62d245400800000000000000
+      internalID: 311923918414917868
       vertices: []
       indices: 
       edges: []
@@ -175,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f5895f8dac1d2f24697fb5913f4902f6
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +208,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":680.0,"y":680.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      alien squid_0: -3530803355137060059
-      alien squid_1: -7585788248465217535
-      alien squid_2: -1058781530134126265
+      Alien Squid_0: -4377772170602826032
+      Alien Squid_1: 6339390220131120293
+      Alien Squid_2: 2294093182264631261
+      Alien Squid_3: 311923918414917868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

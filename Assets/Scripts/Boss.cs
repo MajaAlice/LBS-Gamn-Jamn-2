@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class BossFollow : MonoBehaviour
+public class Boss : MonoBehaviour
 {
-    public float speed; 
+    public float speed;
+    public float speedUpMult;
     GameObject Player;
 
     void Start()
@@ -14,6 +15,7 @@ public class BossFollow : MonoBehaviour
     void FixedUpdate()
     {
         TrackPlayer();
+        MoveTowardsPlayer();
     }
 
     void TrackPlayer()
@@ -22,11 +24,15 @@ public class BossFollow : MonoBehaviour
         Vector2 OffsetVector = transform.position - Player.transform.position;
         float Angle = Mathf.Atan2(OffsetVector.y, OffsetVector.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, Angle + 90);
-
-        transform.position += transform.up * (speed * Time.fixedDeltaTime);
     }
     
-
-
+    public void MoveTowardsPlayer()
+    {
+        float currentSpeed;
+        float distance = (Player.transform.position - transform.position).magnitude;
+        currentSpeed = distance * speedUpMult;
+        if(currentSpeed < speed) { currentSpeed = speed; }
+        transform.position += transform.up * (currentSpeed * Time.fixedDeltaTime);
+    }
 }
 

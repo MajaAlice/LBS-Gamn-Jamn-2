@@ -1,16 +1,24 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Obstacle : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    Animator Animator;
+    private void Start()
     {
-        
+        Animator = gameObject.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Boss"))
+        {
+            Death();
+        }
+    }
+    public void Death()
+    {
+        Destroy(gameObject, 0.2f);
+      
     }
 }

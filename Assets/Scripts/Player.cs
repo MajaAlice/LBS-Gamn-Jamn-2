@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
-
+using UnityEngine.Animations;
 public class Player : MonoBehaviour
 {
 
@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     InputAction Brake;
 
     Rigidbody2D rb;
+
+    Animator Animator;
 
     public float rotationSpeed = 3;
     public float thrust = 2;
@@ -32,6 +34,8 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         Obstacle = LayerMask.GetMask("Obstacle");
         Wall = LayerMask.GetMask("Wall");
+
+        Animator = gameObject.GetComponent<Animator>();
         #endregion
 
         currentThrust = thrust;
@@ -53,12 +57,17 @@ public class Player : MonoBehaviour
         transform.rotation *= Quaternion.AngleAxis(direction * rotationSpeed * Time.fixedDeltaTime, Vector3.forward);
     }
 
+
+    //gives momentum to the ship and sets animation -- Maja
     void MoveForward()
     {
         if (Thrust.ReadValue<float>() == 1)
         {
             rb.linearVelocity += new Vector2(transform.up.x, transform.up.y) * currentThrust * Time.fixedDeltaTime;
+            Animator.Play("ShipThrust");
         }
+        else { Animator.Play("ShipIdle"); }
+        
     }
 
     public void SlowDown()
