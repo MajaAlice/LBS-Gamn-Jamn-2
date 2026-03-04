@@ -60,8 +60,4 @@ public class LineCollider : MonoBehaviour
         }
     }
     */
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(new Vector3(pointA.x, pointA.y), new Vector3(pointB.x, pointB.y));
-    }
 }
