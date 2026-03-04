@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4657714338567697662}
   - component: {fileID: 2671256238977753568}
   - component: {fileID: 2313626964584841806}
+  - component: {fileID: 8237085632053986647}
   m_Layer: 7
   m_Name: LineCollider
   m_TagString: Untagged
@@ -166,3 +167,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &8237085632053986647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986407048523846741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664ab8e6eb8836d4b82d4c5fbccc5f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LineCollider
