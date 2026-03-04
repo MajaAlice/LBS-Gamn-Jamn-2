@@ -15,11 +15,11 @@ public class LineCollider : MonoBehaviour
         gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude, gameObject.transform.localScale.z);
         normal.Normalize();
         gameObject.transform.rotation = Quaternion.LookRotation(normal);
-        gameObject.transform.position = new Vector3((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2, 0);
+        gameObject.transform.position = new Vector2((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2);
     }
 
     // Makes Sure The Player Isnt Intersecting The Line -Lud
-    /*
+    /* not used anymore .-.
     public float lenght;
     public Vector2 normal;
     public Vector2 pointA;
