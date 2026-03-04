@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4611477961188047097}
   - component: {fileID: -815431382836308096}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3604153571076352497, guid: 933e890c19cbcd447b42ceceb18bac9e, type: 3}
+  m_Sprite: {fileID: -1237233469960739150, guid: 22f1c88d5b9ccfd42b967fa1b861c047, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,7 +158,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.59375, y: 0.703125}
+    oldSize: {x: 0.45, y: 0.41}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -166,16 +166,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.080976605, y: 0.33815128}
-      - {x: -0.22366714, y: 0.19098805}
-      - {x: -0.2226162, y: 0.0543786}
-      - {x: -0.28793418, y: -0.039276898}
-      - {x: -0.2886678, y: -0.29346856}
-      - {x: -0.20299637, y: -0.32772034}
-      - {x: 0.114397526, y: -0.33070064}
-      - {x: 0.27154267, y: -0.2920428}
-      - {x: 0.28942406, y: -0.08602321}
-      - {x: 0.19405544, y: 0.001894772}
-      - {x: 0.17417073, y: 0.20746918}
-      - {x: 0.09736812, y: 0.35305265}
+    - - {x: -0.12162304, y: 0.16685584}
+      - {x: -0.19898903, y: 0.03856413}
+      - {x: -0.22116458, y: -0.12853009}
+      - {x: -0.0803473, y: -0.15976435}
+      - {x: 0.00021183491, y: -0.18314263}
+      - {x: 0.18895078, y: -0.1840064}
+      - {x: 0.2179724, y: -0.1098423}
+      - {x: 0.19843078, y: -0.05442977}
+      - {x: 0.22590864, y: 0.07026881}
+      - {x: 0.18215406, y: 0.15284383}
+      - {x: 0.05518329, y: 0.2011145}
   m_UseDelaunayMesh: 1
