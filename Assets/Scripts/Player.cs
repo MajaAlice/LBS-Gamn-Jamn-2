@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public float distanceMult = 0.5f;
     public float brakeStrenght = 0.95f; // a multiplier
 
+    LayerMask Obstacle;
+    LayerMask Wall;
+
     void Start()
     {
         #region refrences
@@ -27,6 +30,8 @@ public class Player : MonoBehaviour
         Brake = InputSystem.actions.FindAction("Sprint");
 
         rb = gameObject.GetComponent<Rigidbody2D>();
+        Obstacle = LayerMask.GetMask("Obstacle");
+        Wall = LayerMask.GetMask("Wall");
         #endregion
 
         currentThrust = thrust;
@@ -37,7 +42,8 @@ public class Player : MonoBehaviour
         RotatePlayer();
         MoveForward();
         SlowDown();
-        Debug.Log(rb.linearVelocity);
+        BehindPlayerCheck();
+        Debug.Log(currentThrust);
     }
 
 
@@ -65,19 +71,34 @@ public class Player : MonoBehaviour
     }
 
 
-    //public void SetThrust(float distance)
-    //{
-    //    distance = distance * distanceMult;
-    //    currentThrust = thrust / (distance * distance);
-    //    if (currentThrust > maxThrust)
-    //    {
-    //        currentThrust = 8;
-    //    }
+    public void SetThrust(float distance)
+    {
+        distance = distance * distanceMult;
+        currentThrust = thrust / (distance * distance);
+        if (currentThrust > maxThrust)
+        {
+            currentThrust = 8;
+        }
 
-    //    if (currentThrust < thrust)
-    //    {
-    //        currentThrust = thrust;
-    //    }
-    //}
+        if (currentThrust < thrust)
+        {
+            currentThrust = thrust;
+        }
+    }
+
+    public void BehindPlayerCheck()
+    {
+        RaycastHit2D hitInfoObstacle = Physics2D.Raycast(transform.position, transform.up * -1, 2, Obstacle);
+        Rigidbody2D affectedObject = hitInfoObstacle.rigidbody;
+        RaycastHit2D hitInfoWall = Physics2D.Raycast(transform.position, transform.up * -1, 2, Wall);
+        if(hitInfoObstacle)
+        {
+            SetThrust(hitInfoObstacle.distance);
+            if(Thrust.ReadValue<float>() == 1)
+            {
+                affectedObject.AddForce(transform.up * currentThrust * -1);
+            }
+        }
+    }
 
 }
