@@ -56,5 +56,5 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   lenght: 2
-  distance: 2
+  distance: 6
   selectedShape: 0
