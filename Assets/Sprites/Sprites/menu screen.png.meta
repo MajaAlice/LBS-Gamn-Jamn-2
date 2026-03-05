@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 355e11158ead6e645a2e8f706eef0d89
+guid: 935e9dbf75087794a8c37eb6e4f456d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1972943759479743899
-    second: spaceship moving spritesheet_0
-  - first:
-      213: 456809192203252028
-    second: spaceship moving spritesheet_1
-  - first:
-      213: -5924391527257029903
-    second: spaceship moving spritesheet_2
+      213: 4268209478464513839
+    second: menu screen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -79,7 +73,7 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -105,9 +99,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spaceship moving spritesheet_0
+      name: menu screen_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 76
-        width: 64
-        height: 64
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b952d9965ed416b10800000000000000
-      internalID: 1972943759479743899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship moving spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 76
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c31786f3a89e65600800000000000000
-      internalID: 456809192203252028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship moving spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 6
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1f2c2837b4558cda0800000000000000
-      internalID: -5924391527257029903
+      spriteID: f2725de18e9bb3b30800000000000000
+      internalID: 4268209478464513839
       vertices: []
       indices: 
       edges: []
@@ -188,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9aeea5487906cb642bea3fb64186d65c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -196,13 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":6.0,"y":6.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      spaceship moving spritesheet_0: 1972943759479743899
-      spaceship moving spritesheet_1: 456809192203252028
-      spaceship moving spritesheet_2: -5924391527257029903
+      menu screen_0: 4268209478464513839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
