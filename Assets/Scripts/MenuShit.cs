@@ -28,7 +28,7 @@ public class MenuShit : MonoBehaviour
     // Used In Making Sure The Correct 2 UIs Changed -Lid -Lud
     void ToggleDualUI(Menus TurnOff, Menus TurnOn)
     {
-        switch(TurnOff)
+        switch (TurnOff)
         {
             case Menus.NULL:
                 break;
@@ -49,6 +49,29 @@ public class MenuShit : MonoBehaviour
                 break;
             case Menus.Pause:
                 Pause.SetActive(false);
+                break;
+        }
+        switch (TurnOn)
+        {
+            case Menus.NULL:
+                break;
+            case Menus.Main:
+                MainMenu.SetActive(true);
+                break;
+            case Menus.Settings:
+                SettingsMenu.SetActive(true);
+                break;
+            case Menus.LevelSelect:
+                LevelSelectMenu.SetActive(true);
+                break;
+            case Menus.Death:
+                DeathMenu.SetActive(true);
+                break;
+            case Menus.Win:
+                VictoryMenu.SetActive(true);
+                break;
+            case Menus.Pause:
+                Pause.SetActive(true);
                 break;
         }
     }
