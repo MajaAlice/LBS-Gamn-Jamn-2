@@ -105,17 +105,14 @@ public class MenuShit : MonoBehaviour
     public void MainFromPause()
     {
         ToggleDualUI(Menus.Pause, Menus.Main);
-        SceneManager.LoadScene(0);
     }
     public void MainFromDeath()
     {
         ToggleDualUI(Menus.Death, Menus.Main);
-        SceneManager.LoadScene(0);
     }
     public void MainFromVictory()
     {
         ToggleDualUI(Menus.Victory, Menus.Main);
-        SceneManager.LoadScene(0);
     }
     public void ChangeScene(int SelectedScene)
     {
