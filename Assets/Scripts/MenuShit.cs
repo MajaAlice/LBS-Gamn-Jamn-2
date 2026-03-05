@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MenuShit : MonoBehaviour
@@ -26,7 +27,7 @@ public class MenuShit : MonoBehaviour
         Pause
     }
     // Used In Making Sure The Correct 2 UIs Changed -Lid -Lud
-    void ToggleDualUI(Menus TurnOff, Menus TurnOn)
+    public void ToggleDualUI(Menus TurnOff, Menus TurnOn)
     {
         switch (TurnOff)
         {
@@ -80,33 +81,24 @@ public class MenuShit : MonoBehaviour
     {
         Application.Quit();
     }
-    public void Main()
+    public void SettingsFromMain() // -Lud
     {
-        MainMenu.SetActive(true);
-        SettingsMenu.SetActive(false);
-        LevelSelectMenu.SetActive(false);
-        DeathMenu.SetActive(false);
+        ToggleDualUI(Menus.Main, Menus.Settings);
     }
-    // Goes From Menu To Settings -Lud
-    public void Settings()
+    public void MainFromSettings() // -Lud
     {
-        MainMenu.SetActive(false);
-        SettingsMenu.SetActive(true);
-    }
-    // Loads The Level On The Holder And Turns Of UI .-.
-    public void SelectLevel(int SelectedLevel)
-    {
-        LevelSelectMenu.SetActive(false);
-        Instantiate(Levels[SelectedLevel], LevelHolder.transform);
+        ToggleDualUI(Menus.Settings, Menus.Main);
     }
     public void LevelSelectFromMain()
     {
-        MainMenu.SetActive(false);
-        LevelSelectMenu.SetActive(true);
+        ToggleDualUI(Menus.Main, Menus.LevelSelect);
     }
-    public void LevelSelectFromPauseScreen()
+    public void MainFromLevelSelect()
     {
-        DeathMenu.SetActive(false);
-        LevelSelectMenu.SetActive(true);
+        ToggleDualUI(Menus.LevelSelect, Menus.Main);
+    }
+    public void MainFromPause()
+    {
+
     }
 }

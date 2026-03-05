@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    //maja
+    //maja's code -Lud
     GameObject Player;
 
     void Start()
