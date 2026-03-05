@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     InputAction Thrust;
     InputAction Brake;
 
+    GameObject BossObj;
+    Boss Boss;
+
     Rigidbody2D rb;
 
     Animator Animator;
@@ -21,6 +24,8 @@ public class Player : MonoBehaviour
     public float distanceMult = 0.5f;
     public float brakeStrenght = 0.95f; // a multiplier
     public bool hasControl = true;
+    bool hasBossRef = false;
+    public float behindPlayerCheckDistance = 4f;
 
     LayerMask Obstacle;
     LayerMask Wall;
@@ -36,6 +41,14 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         Obstacle = LayerMask.GetMask("Obstacle");
         Wall = LayerMask.GetMask("Wall");
+
+        if (GameObject.FindGameObjectWithTag("Boss") != null)
+        {
+            BossObj = GameObject.FindGameObjectWithTag("Boss");
+            Boss = BossObj.GetComponent<Boss>();
+            hasBossRef = true;
+        }
+
 
         Animator = gameObject.GetComponent<Animator>();
         #endregion
@@ -113,9 +126,9 @@ public class Player : MonoBehaviour
     //crude af code that checks for objects behind the player and pushes objects, also triggers SetThrust() -- Maja
     public void BehindPlayerCheck()
     {
-        RaycastHit2D hitInfoObstacle = Physics2D.Raycast(transform.position, transform.up * -1, 2, Obstacle);
+        RaycastHit2D hitInfoObstacle = Physics2D.Raycast(transform.position, transform.up * -1, behindPlayerCheckDistance, Obstacle);
         Rigidbody2D affectedObject = hitInfoObstacle.rigidbody;
-        RaycastHit2D hitInfoWall = Physics2D.Raycast(transform.position, transform.up * -1, 2, Wall);
+        RaycastHit2D hitInfoWall = Physics2D.Raycast(transform.position, transform.up * -1, behindPlayerCheckDistance, Wall);
         if(hitInfoObstacle)
         {
             SetThrust(hitInfoObstacle.distance);
@@ -138,6 +151,18 @@ public class Player : MonoBehaviour
         hasControl = false;
         rb.linearVelocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);
+        if (hasBossRef)
+        {
+            Boss.isChasing = false;
+        }
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bag"))
+        {
+            StartCoroutine(Kill());
+        }
     }
 }

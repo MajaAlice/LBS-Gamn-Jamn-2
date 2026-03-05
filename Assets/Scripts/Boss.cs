@@ -42,7 +42,6 @@ public class Boss : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
-            isChasing = false;
             Player PlayerScript = Player.GetComponent<Player>();
             StartCoroutine(PlayerScript.Kill());
         }

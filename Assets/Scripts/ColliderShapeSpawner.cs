@@ -96,14 +96,14 @@ public class ColliderShapeSpawner : MonoBehaviour
     {
         linePoints[0] = transform.position;
         transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
-        linePoints[1] = transform.position + transform.up * distance;
+        linePoints[1] = transform.position + transform.up * lenght;
         SpawnLine(linePoints[0], linePoints[1]);
     }
 
     public void Tube()
     {
         Line();
-        transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
+        transform.rotation *= Quaternion.AngleAxis(90, Vector3.forward);
         transform.position += transform.up * distance;
         Line();
     }
@@ -119,8 +119,8 @@ public class ColliderShapeSpawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         //Gizmos.color = Color.red;
-        //Gizmos.DrawLineStrip(outerPoints, false);
-        //Gizmos.color = Color.purple;
-        //Gizmos.DrawLineStrip(innerPoints, false);
+        //Gizmos.DrawLineStrip(ringOuterPoints, false);
+        //Gizmos.DrawLineStrip(ringInnerPoints, false);
+        //Gizmos.DrawLine(linePoints[0], linePoints[1]);
     }
 }
