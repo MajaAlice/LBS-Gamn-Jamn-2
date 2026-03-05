@@ -111,10 +111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rotationSpeed: 240
   thrust: 5
-  maxThrust: 10
+  maxThrust: 80
   distanceMult: 0.5
   brakeStrenght: 0.95
   hasControl: 1
+  behindPlayerCheckDistance: 4
 --- !u!50 &1234045430660079816
 Rigidbody2D:
   serializedVersion: 5
