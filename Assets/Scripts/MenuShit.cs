@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuShit : MonoBehaviour
 {
-    // Parent Objects -Lud
-    public GameObject LevelHolder;
+    // Objects To NOT Delete -Lud
+    public GameObject GameCanvas;
     // UI Objects -Lud
     public GameObject MainMenu;
     public GameObject SettingsMenu;
@@ -13,8 +15,6 @@ public class MenuShit : MonoBehaviour
     public GameObject DeathMenu;
     public GameObject VictoryMenu;
     public GameObject Pause;
-    // Levels -Lud
-    public List<GameObject> Levels;
 
     public enum Menus
     {
@@ -23,8 +23,13 @@ public class MenuShit : MonoBehaviour
         Settings,
         LevelSelect,
         Death,
-        Win,
+        Victory,
         Pause
+    }
+    
+    private void Start()
+    {
+        DontDestroyOnLoad(GameCanvas);
     }
     // Used In Making Sure The Correct 2 UIs Changed -Lid -Lud
     public void ToggleDualUI(Menus TurnOff, Menus TurnOn)
@@ -45,7 +50,7 @@ public class MenuShit : MonoBehaviour
             case Menus.Death:
                 DeathMenu.SetActive(false);
                 break;
-            case Menus.Win:
+            case Menus.Victory:
                 VictoryMenu.SetActive(false);
                 break;
             case Menus.Pause:
@@ -68,7 +73,7 @@ public class MenuShit : MonoBehaviour
             case Menus.Death:
                 DeathMenu.SetActive(true);
                 break;
-            case Menus.Win:
+            case Menus.Victory:
                 VictoryMenu.SetActive(true);
                 break;
             case Menus.Pause:
@@ -99,6 +104,21 @@ public class MenuShit : MonoBehaviour
     }
     public void MainFromPause()
     {
-
+        ToggleDualUI(Menus.Pause, Menus.Main);
+        SceneManager.LoadScene(0);
+    }
+    public void MainFromDeath()
+    {
+        ToggleDualUI(Menus.Death, Menus.Main);
+        SceneManager.LoadScene(0);
+    }
+    public void MainFromVictory()
+    {
+        ToggleDualUI(Menus.Victory, Menus.Main);
+        SceneManager.LoadScene(0);
+    }
+    public void ChangeScene(int SelectedScene)
+    {
+        SceneManager.LoadScene(SelectedScene);
     }
 }
