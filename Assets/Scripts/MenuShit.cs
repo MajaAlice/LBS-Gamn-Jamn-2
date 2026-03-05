@@ -81,11 +81,11 @@ public class MenuShit : MonoBehaviour
                 break;
         }
     }
-
     public void Quit() // Quits The Game -Lud
     {
         Application.Quit();
     }
+    #region Main
     public void SettingsFromMain() // -Lud
     {
         ToggleDualUI(Menus.Main, Menus.Settings);
@@ -98,24 +98,31 @@ public class MenuShit : MonoBehaviour
     {
         ToggleDualUI(Menus.Main, Menus.LevelSelect);
     }
+    #endregion
+    #region LevelSelect
     public void MainFromLevelSelect()
     {
         ToggleDualUI(Menus.LevelSelect, Menus.Main);
     }
+    public void ChangeScene(int SelectedScene)
+    {
+        ToggleDualUI(Menus.LevelSelect, Menus.NULL);
+        SceneManager.LoadScene(SelectedScene);
+    }
+    #endregion
     public void MainFromPause()
     {
-        ToggleDualUI(Menus.Pause, Menus.Main);
+        Destroy(GameCanvas);
+        SceneManager.LoadScene(0);
     }
     public void MainFromDeath()
     {
-        ToggleDualUI(Menus.Death, Menus.Main);
+        Destroy(GameCanvas);
+        SceneManager.LoadScene(0);
     }
     public void MainFromVictory()
     {
-        ToggleDualUI(Menus.Victory, Menus.Main);
-    }
-    public void ChangeScene(int SelectedScene)
-    {
-        SceneManager.LoadScene(SelectedScene);
+        Destroy(GameCanvas);
+        SceneManager.LoadScene(0);
     }
 }
