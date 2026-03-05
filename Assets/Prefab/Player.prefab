@@ -108,11 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc5a3992d56edd41a6fb845a4a00b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  rotationSpeed: 200
+  rotationSpeed: 240
   thrust: 5
   maxThrust: 10
   distanceMult: 0.5
   brakeStrenght: 0.95
+  hasControl: 1
 --- !u!50 &1234045430660079816
 Rigidbody2D:
   serializedVersion: 5
@@ -139,7 +140,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &1083894081255875613
 PolygonCollider2D:
   m_ObjectHideFlags: 0
