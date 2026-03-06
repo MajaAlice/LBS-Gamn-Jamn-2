@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     Animator Animator;
 
+    GameObject MenuManager;
+    MenuShit MenuShit;
+
     public float rotationSpeed = 3;
     public float thrust = 2;
     static public float currentThrust;
@@ -51,6 +54,9 @@ public class Player : MonoBehaviour
 
 
         Animator = gameObject.GetComponent<Animator>();
+
+        MenuManager = GameObject.FindGameObjectWithTag("Menu");
+        MenuShit = MenuManager.GetComponent<MenuShit>();
         #endregion
 
         currentThrust = thrust;
@@ -68,7 +74,7 @@ public class Player : MonoBehaviour
     }
 
 
-    //maja
+    //maja´s code -Lud
     void RotatePlayer()
     {
         float direction = DirectionChange.ReadValue<Vector2>().x * -1;
@@ -156,6 +162,7 @@ public class Player : MonoBehaviour
             Boss.isChasing = false;
         }
         gameObject.SetActive(false);
+        MenuShit.ToggleDualUI(MenuShit.Menus.NULL, MenuShit.Menus.Death);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
