@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
                 minutes++;  
             }
         }
-        TimerText.text = minutes.ToString() + "m:" + seconds.ToString() + "s";
+        float FloorTime = Mathf.Floor(seconds * 1000);
+        TimerText.text = minutes.ToString() + ":" + (FloorTime/1000).ToString() + "s";
     }
 }

@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
-using UnityEngine.Animations;
 using System.Collections;
 public class Player : MonoBehaviour
 {
