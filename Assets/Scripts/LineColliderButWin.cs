@@ -23,7 +23,10 @@ public class LineColliderButWin : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            BossScript.isChasing = false;
+            if(BossObject != null)
+            {
+                BossScript.isChasing = false;
+            }
             MenuShit.ToggleDualUI(MenuShit.Menus.NULL, MenuShit.Menus.Victory);
             MenuShit.StopTimer();
         }
