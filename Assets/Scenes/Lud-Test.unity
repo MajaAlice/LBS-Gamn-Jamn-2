@@ -2641,8 +2641,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 888297708}
         m_TargetAssemblyTypeName: MenuShit, Assembly-CSharp
-        m_MethodName: set_tag
-        m_Mode: 5
+        m_MethodName: RestartScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3573,7 +3573,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 888297708}
         m_TargetAssemblyTypeName: MenuShit, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: RestartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3915,8 +3915,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 888297708}
         m_TargetAssemblyTypeName: MenuShit, Assembly-CSharp
-        m_MethodName: set_tag
-        m_Mode: 5
+        m_MethodName: RestartScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -16,6 +16,8 @@ public class MenuShit : MonoBehaviour
     public GameObject VictoryMenu;
     public GameObject Pause;
 
+    // Restart Thingy
+    static int CurrentIndex;
     public enum Menus
     {
         NULL,
@@ -108,6 +110,14 @@ public class MenuShit : MonoBehaviour
     {
         ToggleDualUI(Menus.LevelSelect, Menus.NULL);
         SceneManager.LoadScene(SelectedScene);
+        CurrentIndex = SelectedScene;
+    }
+    public void RestartScene()
+    {
+        ToggleDualUI(Menus.Death, Menus.NULL);
+        ToggleDualUI(Menus.Victory, Menus.NULL);
+        ToggleDualUI(Menus.Pause, Menus.NULL);
+        SceneManager.LoadScene(CurrentIndex);
     }
     #endregion
     public void MainFromPause()

@@ -162,6 +162,7 @@ public class Player : MonoBehaviour
             Boss.isChasing = false;
         }
         gameObject.SetActive(false);
+        new WaitForSeconds(1);
         MenuShit.ToggleDualUI(MenuShit.Menus.NULL, MenuShit.Menus.Death);
     }
 
