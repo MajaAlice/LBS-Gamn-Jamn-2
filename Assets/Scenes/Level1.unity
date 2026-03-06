@@ -132895,6 +132895,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2546758070758569190, guid: 23fc1f76a25d885409f7f3caa1bebfc1, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2720240134932481844, guid: 23fc1f76a25d885409f7f3caa1bebfc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 80.5
@@ -132952,6 +132956,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1952297202853251029, guid: 18a13de6286317c4a933f5241300c3ce, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2379906334628141046, guid: 18a13de6286317c4a933f5241300c3ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -232
@@ -133013,6 +133021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: planet 3_0
       objectReference: {fileID: 0}
+    - target: {fileID: 5010069009526411510, guid: a963e781551afd648a0077d5c5e3d2ff, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731010710471680366, guid: a963e781551afd648a0077d5c5e3d2ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -271.4
@@ -133066,6 +133078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3545862596086597137, guid: 415fd7917c8f69a4693b4bf9130ac6e3, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4528678193895500388, guid: 415fd7917c8f69a4693b4bf9130ac6e3, type: 3}
       propertyPath: m_Name
       value: planet 1_0
@@ -133127,6 +133143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: planet 1_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7226949903582719019, guid: aa3a42dca03cbbc4b811510f464320c4, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8479687276610810603, guid: aa3a42dca03cbbc4b811510f464320c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 159.3
@@ -133180,6 +133200,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4428735044816908469, guid: 3fcca2690f6c90849a59a7ce02097c5d, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8689690354038787332, guid: 3fcca2690f6c90849a59a7ce02097c5d, type: 3}
       propertyPath: m_Name
       value: supernova_0 (1)
@@ -133281,6 +133305,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6938673223195086920, guid: 90a23476ad7e832459228715660c15f2, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -133294,6 +133322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188127760568554047, guid: 169c89ec60fc6c346b077be71e953f44, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7714984778091502724, guid: 169c89ec60fc6c346b077be71e953f44, type: 3}
       propertyPath: m_Name
       value: planet 1_0 (2)
@@ -133354,6 +133386,10 @@ PrefabInstance:
     - target: {fileID: 1604545334780509281, guid: d4573bf103ee07047810e92e0d692580, type: 3}
       propertyPath: m_Name
       value: supernova_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698798457782002006, guid: d4573bf103ee07047810e92e0d692580, type: 3}
+      propertyPath: m_Intensity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7835631339080280224, guid: d4573bf103ee07047810e92e0d692580, type: 3}
       propertyPath: m_LocalPosition.x
