@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
   Obstacle: {fileID: 0}
   amount: 10
-  point1: {x: 107, y: -81}
-  point2: {x: 156, y: -66}
+  point1: {x: 0, y: 0}
+  point2: {x: 0, y: 0}
