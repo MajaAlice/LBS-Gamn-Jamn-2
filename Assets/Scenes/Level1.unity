@@ -2418,6 +2418,22 @@ PrefabInstance:
       propertyPath: Obstacle
       value: 
       objectReference: {fileID: 6523398488463146237, guid: 464c656821c732c4497b52b679c4db58, type: 3}
+    - target: {fileID: -3007162332669306184, guid: b901e616dd8e6254fbf2fa01b1e64a4a, type: 3}
+      propertyPath: point1.x
+      value: 107
+      objectReference: {fileID: 0}
+    - target: {fileID: -3007162332669306184, guid: b901e616dd8e6254fbf2fa01b1e64a4a, type: 3}
+      propertyPath: point1.y
+      value: -81
+      objectReference: {fileID: 0}
+    - target: {fileID: -3007162332669306184, guid: b901e616dd8e6254fbf2fa01b1e64a4a, type: 3}
+      propertyPath: point2.x
+      value: 156
+      objectReference: {fileID: 0}
+    - target: {fileID: -3007162332669306184, guid: b901e616dd8e6254fbf2fa01b1e64a4a, type: 3}
+      propertyPath: point2.y
+      value: -67
+      objectReference: {fileID: 0}
     - target: {fileID: 1631249769741988438, guid: b901e616dd8e6254fbf2fa01b1e64a4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 153.46262
