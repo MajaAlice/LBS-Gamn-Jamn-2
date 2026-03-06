@@ -310,6 +310,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
+      propertyPath: angle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
       propertyPath: lenght
       value: 4
       objectReference: {fileID: 0}
@@ -318,8 +322,20 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
+      propertyPath: segments
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
       propertyPath: selectedShape
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
+      propertyPath: ringInnerRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 530765355760758793, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
+      propertyPath: ringOuterRadius
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8230975667705892666, guid: dbbfcc3bd7d5cb244a21dad279862f8f, type: 3}
       propertyPath: m_Name
@@ -563,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1111297598
 SpriteRenderer:
   serializedVersion: 2

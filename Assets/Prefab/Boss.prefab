@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5867602f1a5ccdb4780740bf9f4b9dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossFollow
-  speed: 2
-  speedUpMult: 0.5
+  speed: 7
+  speedUpMult: 0.95
   isChasing: 1
 --- !u!111 &3739166507760094921
 Animation:
