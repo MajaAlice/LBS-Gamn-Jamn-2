@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     {
         
     }
-
+    // This needs comments -Lud
     void Update()
     {
         if (isCounting)
