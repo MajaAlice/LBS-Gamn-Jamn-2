@@ -12,8 +12,11 @@ public class LineColliderButWin : MonoBehaviour
     {
         MenuObject = GameObject.FindGameObjectWithTag("Menu");
         MenuShit = MenuObject.GetComponent<MenuShit>();
-        BossObject = GameObject.FindGameObjectWithTag("Boss");
-        BossScript = BossObject.GetComponent<Boss>();
+        if(GameObject.FindGameObjectWithTag("Boss") != null)
+        {
+            BossObject = GameObject.FindGameObjectWithTag("Boss");
+            BossScript = BossObject.GetComponent<Boss>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +25,7 @@ public class LineColliderButWin : MonoBehaviour
         {
             BossScript.isChasing = false;
             MenuShit.ToggleDualUI(MenuShit.Menus.NULL, MenuShit.Menus.Victory);
+            MenuShit.StopTimer();
         }
     }
 }
