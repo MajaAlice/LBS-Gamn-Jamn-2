@@ -154,6 +154,7 @@ public class Player : MonoBehaviour
     public IEnumerator Kill()
     {
         Animator.Play("Explosion");
+        MenuShit.StartTimer();
         hasControl = false;
         rb.linearVelocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);

@@ -22,6 +22,7 @@ public class LineColliderButWin : MonoBehaviour
         {
             BossScript.isChasing = false;
             MenuShit.ToggleDualUI(MenuShit.Menus.NULL, MenuShit.Menus.Victory);
+            MenuShit.StopTimer();
         }
     }
 }

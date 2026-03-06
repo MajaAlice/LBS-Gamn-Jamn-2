@@ -15,7 +15,8 @@ public class MenuShit : MonoBehaviour
     public GameObject DeathMenu;
     public GameObject VictoryMenu;
     public GameObject Pause;
-
+    public GameObject GameTimer;
+    public Timer timer;
     // Restart Thingy
     static int CurrentIndex;
     public enum Menus
@@ -111,6 +112,8 @@ public class MenuShit : MonoBehaviour
         ToggleDualUI(Menus.LevelSelect, Menus.NULL);
         SceneManager.LoadScene(SelectedScene);
         CurrentIndex = SelectedScene;
+        GameTimer.SetActive(true);
+        StartTimer();
     }
     public void RestartScene()
     {
@@ -118,6 +121,8 @@ public class MenuShit : MonoBehaviour
         ToggleDualUI(Menus.Victory, Menus.NULL);
         ToggleDualUI(Menus.Pause, Menus.NULL);
         SceneManager.LoadScene(CurrentIndex);
+        RestartTimer();
+        StartTimer();
     }
     #endregion
     public void MainFromPause()
@@ -134,5 +139,18 @@ public class MenuShit : MonoBehaviour
     {
         Destroy(GameCanvas);
         SceneManager.LoadScene(0);
+    }
+    public void StartTimer()
+    {
+        timer.isCounting = true;
+    }
+    public void StopTimer()
+    {
+        timer.isCounting = false;
+    }
+    public void RestartTimer()
+    {
+        timer.seconds = 0;
+        timer.minutes = 0;
     }
 }
