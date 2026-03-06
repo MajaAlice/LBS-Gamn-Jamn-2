@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -5,11 +6,12 @@ public class Timer : MonoBehaviour
     public float seconds;
     public int minutes;
     public bool isCounting = true;
+    public TMP_Text TimerText;
     void Start()
     {
         
     }
-
+    // This needs comments -Lud
     void Update()
     {
         if (isCounting)
@@ -21,5 +23,6 @@ public class Timer : MonoBehaviour
                 minutes++;  
             }
         }
+        TimerText.text = minutes.ToString() + "m:" + seconds.ToString() + "s";
     }
 }
