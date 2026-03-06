@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boss
   - Bag
+  - Menu
   layers:
   - Default
   - TransparentFX
