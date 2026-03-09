@@ -84,8 +84,13 @@ public class Player : MonoBehaviour
     void MoveForward()
     {
         if (Thrust.ReadValue<float>() == 1)
-        {
-            rb.linearVelocity += new Vector2(transform.up.x, transform.up.y) * currentThrust * Time.fixedDeltaTime;
+        { 
+            rb.linearVelocity += (Vector2)transform.up * (currentThrust * Time.fixedDeltaTime);
+            float CurrentSpeed = rb.linearVelocity.magnitude;
+            rb.linearVelocity.Normalize();
+            Vector2 NewDirection = (Vector2)transform.up + rb.linearVelocity;
+            NewDirection.Normalize();
+            rb.linearVelocity = NewDirection * CurrentSpeed;
             Animator.Play("ShipThrust");
         }
         else { Animator.Play("ShipIdle"); }
