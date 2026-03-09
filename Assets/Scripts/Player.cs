@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public float maxThrust = 10;
     public float distanceMult = 0.5f;
     public float brakeStrenght = 0.95f; // a multiplier
+    public float directionChangeMult = 0.2f;
     public bool hasControl = true;
     bool hasBossRef = false;
     public float behindPlayerCheckDistance = 4f;
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
             rb.linearVelocity += (Vector2)transform.up * (currentThrust * Time.fixedDeltaTime);
             float CurrentSpeed = rb.linearVelocity.magnitude;
             rb.linearVelocity.Normalize();
-            Vector2 NewDirection = (Vector2)transform.up + rb.linearVelocity;
+            Vector2 NewDirection = (Vector2)transform.up + rb.linearVelocity * directionChangeMult;
             NewDirection.Normalize();
             rb.linearVelocity = NewDirection * CurrentSpeed;
             Animator.Play("ShipThrust");
