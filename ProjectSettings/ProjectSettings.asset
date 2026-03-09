@@ -686,11 +686,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6316e83e-2ad3-43e1-9cc8-57ef3eff9296
+  cloudProjectId: 99cce023-e583-4ca3-ac51-d438682f8735
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: LBS Gamn Jamn 2
-  organizationId: unity_46c521ab9073b7d56e80
+  organizationId: standupsugar8
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

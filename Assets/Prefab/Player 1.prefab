@@ -115,6 +115,7 @@ MonoBehaviour:
   maxThrust: 80
   distanceMult: 0.5
   brakeStrenght: 0.95
+  directionChangeMult: 3
   hasControl: 1
   behindPlayerCheckDistance: 4
 --- !u!50 &1234045430660079816
