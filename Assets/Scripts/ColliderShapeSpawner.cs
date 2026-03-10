@@ -118,9 +118,29 @@ public class ColliderShapeSpawner : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        //Gizmos.color = Color.red;
+        switch (selectedShape)
+        {
+            case shapeTypes.line:
+                Gizmos.color = Color.red;
+                Vector3 LinePointA = transform.position;
+                transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+                Vector3 LinePointB = transform.position + transform.up * lenght;
+                Gizmos.DrawLine(LinePointA, LinePointB);
+                break;
+
+            case shapeTypes.tube:
+                Gizmos.color = Color.blue;
+                // BLUE
+                break;
+
+            case shapeTypes.curve: // both curve and parallel curve are in the same function, it's a bit spaghetti but it works -- Maja
+                Gizmos.color = Color.green;
+                break;
+            case shapeTypes.parallelCurve:
+                Gizmos.color = Color.green;
+                break;
+        }
         //Gizmos.DrawLineStrip(ringOuterPoints, false);
         //Gizmos.DrawLineStrip(ringInnerPoints, false);
-        //Gizmos.DrawLine(linePoints[0], linePoints[1]);
     }
 }
