@@ -118,9 +118,67 @@ public class ColliderShapeSpawner : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawLineStrip(ringOuterPoints, false);
-        //Gizmos.DrawLineStrip(ringInnerPoints, false);
-        //Gizmos.DrawLine(linePoints[0], linePoints[1]);
+        Vector3 CurvePos = transform.position;
+        Vector3[] GizmosOuterPoints = new Vector3[segments + 1];
+        Vector3[] GizmosInnerPoints = new Vector3[segments + 1];
+        float stepSize = angle / segments;
+        switch (selectedShape)
+        {
+            case shapeTypes.line:
+                Gizmos.color = Color.red;
+                Vector3 LinePointA = transform.position;
+                transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+                Vector3 LinePointB = transform.position + transform.up * lenght;
+                Gizmos.DrawLine(LinePointA, LinePointB);
+                break;
+
+            case shapeTypes.tube:
+                Gizmos.color = Color.blue;
+                // BLUE
+                Vector3 Pos = transform.position; // So it doesnt move away... -Lud
+                Vector3 TubePointA = Pos;
+                transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+                Vector3 TubePointB = Pos + transform.up * lenght;
+                Gizmos.DrawLine(TubePointA, TubePointB);
+                transform.rotation *= Quaternion.AngleAxis(90, Vector3.forward);
+                Pos += transform.up * distance;
+                Vector3 TubePointD = Pos;
+                transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+                Vector3 TubePointC = Pos + transform.up * lenght;
+                Gizmos.DrawLine(TubePointD, TubePointC);
+                break;
+
+            case shapeTypes.curve: // both curve and parallel curve are in the same function, it's a bit spaghetti but it works -- Maja
+                Gizmos.color = Color.green;
+                transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+                GizmosOuterPoints[0] = CurvePos + transform.up * ringOuterRadius;
+                GizmosInnerPoints[0] = CurvePos + transform.up * ringInnerRadius;
+
+                for (int i = 1; i < segments + 1; i++)
+                {
+                    transform.rotation *= transform.rotation = Quaternion.AngleAxis(stepSize, Vector3.forward);
+                    GizmosOuterPoints[i] = CurvePos + transform.up * ringOuterRadius;
+                }
+                Gizmos.DrawLineStrip(GizmosOuterPoints, false);
+                break;
+            case shapeTypes.parallelCurve:
+                Gizmos.color = Color.yellowGreen;
+                transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
+                GizmosOuterPoints[0] = CurvePos + transform.up * ringOuterRadius;
+                GizmosInnerPoints[0] = CurvePos + transform.up * ringInnerRadius;
+
+                for (int i = 1; i < segments + 1; i++)
+                {
+                    transform.rotation *= transform.rotation = Quaternion.AngleAxis(stepSize, Vector3.forward);
+                    GizmosOuterPoints[i] = CurvePos + transform.up * ringOuterRadius;
+                    if (selectedShape == shapeTypes.parallelCurve)
+                    {
+                        GizmosInnerPoints[i] = CurvePos + transform.up * ringInnerRadius;
+                    }
+                }
+                Gizmos.DrawLineStrip(GizmosOuterPoints, false);
+                Gizmos.DrawLineStrip(GizmosInnerPoints, false);
+                break;
+        }
     }
 }

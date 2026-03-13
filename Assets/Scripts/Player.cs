@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     GameObject BossObj;
     Boss Boss;
 
+    AudioSource Audio;
+    public AudioClip Explosion;
+
     Rigidbody2D rb;
 
     Animator Animator;
@@ -53,6 +56,7 @@ public class Player : MonoBehaviour
 
 
         Animator = gameObject.GetComponent<Animator>();
+        Audio = gameObject.GetComponent<AudioSource>();
 
         MenuManager = GameObject.FindGameObjectWithTag("Menu");
         MenuShit = MenuManager.GetComponent<MenuShit>();
@@ -93,9 +97,12 @@ public class Player : MonoBehaviour
             NewDirection.Normalize();
             rb.linearVelocity = NewDirection * CurrentSpeed;
             Animator.Play("ShipThrust");
+            if (Audio.isPlaying == false)
+            {
+                Audio.Play();
+            }
         }
         else { Animator.Play("ShipIdle"); }
-        
     }
 
     public void SlowDown()
@@ -161,6 +168,7 @@ public class Player : MonoBehaviour
         MenuShit.StopTimer();
         hasControl = false;
         rb.linearVelocity = Vector2.zero;
+
         yield return new WaitForSeconds(0.5f);
         if (hasBossRef)
         {
