@@ -3,60 +3,58 @@ using UnityEngine.UIElements;
 
 public class LineCollider : MonoBehaviour
 {
+    // Dumb Float Making Curves Look Solid While They Have Gaps -Lud
     public static float LineExtraThick = 0.15f;
-    // Makes Sure The Normals Are Up To Date -Lud
-    public void UpdateVector( Vector2 pointA, Vector2 pointB)
+    // Makes Sure The Normals Are Up To Date -Lud [ The Names Should Be Fixed But I Am Just Making Sure The Scripts Dont Die]
+    public void UpdateVector( Vector2 pointAUpdate, Vector2 pointBUpdate)
     {
         // Updates The Values -Lud
-        Vector2 localPos = pointB - pointA;
-        Vector2 normal = localPos;
-        // Makes Sure The Sprite Is In The Correct Direction -Lud
-        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normal.magnitude + LineExtraThick, gameObject.transform.localScale.z);
-        normal.Normalize();
-        gameObject.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(normal.y, normal.x) * Mathf.Rad2Deg + 90);
-        gameObject.transform.position = new Vector2((pointA.x + pointB.x)/2, (pointA.y + pointB.y)/2);
-    }
+        Vector2 localPos = pointBUpdate - pointAUpdate;
+        Vector2 normalUpdate = localPos;
+        // Makes Sure The Sprite Is In The Correct Position -Lud
+        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, normalUpdate.magnitude + LineExtraThick, gameObject.transform.localScale.z);
+        lenght = normalUpdate.magnitude;
+        normalUpdate.Normalize();
+        normal = normalUpdate;
 
-    // Makes Sure The Player Isnt Intersecting The Line -Lud
-    /* not used anymore .-.
+        // Rotates The Game Object So It Doesnt Look Fucked -Lud
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(normalUpdate.y, normalUpdate.x) * Mathf.Rad2Deg + 90);
+        gameObject.transform.position = new Vector2((pointAUpdate.x + pointBUpdate.x)/2, (pointAUpdate.y + pointBUpdate.y)/2);
+    }
+    // Player Veriables -Lud
+    public GameObject PlayerObject;
+    public Rigidbody2D PlayerBody;
+    public CircleCollider2D PlayerCollider;
+    // Line Veriables -Lud
     public float lenght;
-    public Vector2 normal;
     public Vector2 pointA;
     public Vector2 pointB;
-    public Vector2 rightNormal;
-    public Vector2 leftNormal;
-    static float rigidity;
-    static float tangentRigidity;
-    static float lineTHICK;
-    public void CheckLineCollison()
+    public Vector2 normal;
+    public static float rigidity;
+    public static float tangentRigidity;
+    public void CheckLineCollison(GameObject PlayerObject, Rigidbody2D PlayerBody, CircleCollider2D PlayerCollider)
     {
         Vector2 PlayerPos = PlayerObject.transform.position;
-        Vector2 localPlayerPos = gameObject.transform.position - PlayerObject.transform.position;
+        Vector2 localPlayerPos = (Vector2)gameObject.transform.position - PlayerPos;
         float LengthDistance = Vector2.Dot(localPlayerPos, normal);
         if ((LengthDistance < lenght) && (LengthDistance > 0))
         {
-            float distanceAlongNormal = Vector2.Dot(localPlayerPos, rightNormal);
-            if(Mathf.Abs(distanceAlongNormal) < PlayerCollider.radius + lineTHICK)
+            float distanceAlongNormal = Vector2.Dot(localPlayerPos, new Vector2(normal.y, -normal.x));
+            if(distanceAlongNormal < PlayerCollider.radius)
             {
-                float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, rightNormal);
-                float speedAlongNormalLeft = Vector2.Dot(PlayerBody.linearVelocity, leftNormal);
-                float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(rightNormal.y, -rightNormal.x));
-                float speedAlongTangentLeft = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(leftNormal.y, -leftNormal.x));
+                PlayerObject.transform.position += (Vector3)(new Vector2(normal.y, -normal.x) * (PlayerCollider.radius - distanceAlongNormal));
+
+                float speedAlongNormal = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(normal.y, -normal.x));
+                float speedAlongTangent = Vector2.Dot(PlayerBody.linearVelocity, new Vector2(-normal.x, -normal.y));
 
                 if (speedAlongNormal <= 0)
                 {
                     // Credit Zanzlanz -Lud
-                    PlayerBody.linearVelocityX = -(speedAlongNormal * rightNormal.x) * rigidity + (speedAlongTangent * rightNormal.y) * tangentRigidity;
-                    PlayerBody.linearVelocityY = -(speedAlongNormal * rightNormal.y) * rigidity + (speedAlongTangent * -rightNormal.x) * tangentRigidity;
-                }
-                else if (speedAlongNormalLeft <= 0)
-                {
-                    // Credit Zanzlanz -Lud
-                    PlayerBody.linearVelocityX = -(speedAlongNormalLeft * leftNormal.x) * rigidity + (speedAlongTangentLeft * leftNormal.y) * tangentRigidity;
-                    PlayerBody.linearVelocityY = -(speedAlongNormalLeft * leftNormal.y) * rigidity + (speedAlongTangentLeft * -leftNormal.x) * tangentRigidity;
+                    PlayerBody.linearVelocityX = -(speedAlongNormal * normal.y) * rigidity + (speedAlongTangent * -normal.x) * tangentRigidity;
+                    PlayerBody.linearVelocityY = -(speedAlongNormal * -normal.x) * rigidity + (speedAlongTangent * -normal.y) * tangentRigidity;
                 }
             }
         }
     }
-    */
+    
 }
