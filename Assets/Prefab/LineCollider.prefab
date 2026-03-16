@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1854215476239072060}
-  - component: {fileID: 4657714338567697662}
+  - component: {fileID: 8046135139026617011}
   - component: {fileID: 2313626964584841806}
   - component: {fileID: 8237085632053986647}
   m_Layer: 7
@@ -34,7 +34,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4657714338567697662
+--- !u!61 &8046135139026617011
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,23 +47,23 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 4294967295
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
@@ -151,3 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664ab8e6eb8836d4b82d4c5fbccc5f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineCollider
+  PlayerObject: {fileID: 0}
+  PlayerBody: {fileID: 0}
+  PlayerCollider: {fileID: 0}
+  lenght: 0
+  ColliderSide: 1
+  pointA: {x: 0, y: 0}
+  pointB: {x: 0, y: 0}
+  normal: {x: 0, y: 0}
