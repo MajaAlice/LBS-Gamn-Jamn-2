@@ -59,7 +59,10 @@ public class Player : MonoBehaviour
         Audio = gameObject.GetComponent<AudioSource>();
 
         MenuManager = GameObject.FindGameObjectWithTag("Menu");
-        MenuShit = MenuManager.GetComponent<MenuShit>();
+        if(MenuManager != null)
+        {
+            MenuShit = MenuManager.GetComponent<MenuShit>();
+        }
         #endregion
 
         currentThrust = thrust;

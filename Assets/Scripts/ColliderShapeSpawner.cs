@@ -113,7 +113,8 @@ public class ColliderShapeSpawner : MonoBehaviour
         GameObject tempObj = Instantiate(LineColliderObj);
         LineCollider line = tempObj.GetComponent<LineCollider>();
 
-        line.UpdateVector((Vector2)pointA, (Vector2)pointB);
+        line.pointA = pointA;
+        line.pointB = pointB;
     }
     
     private void OnDrawGizmos()
